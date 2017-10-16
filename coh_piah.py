@@ -4,22 +4,32 @@ Razão Hapax Legomana: Número de palavras utilizadas uma vez dividido pelo núm
 Tamanho médio de sentença: Média simples do número de caracteres por sentença.
 Complexidade de sentença: Média simples do número de frases por sentença.
 Tamanho médio de frase: Média simples do número de caracteres por frase.'''
+'''Lista de funções
+OK def le_assinatura():
+OK def le_textos():
+OK def separa_sentencas(texto):
+OK def separa_frases(sentenca):
+OK def separa_palavras(frase):
+OK def n_palavras_unicas(lista_palavras):
+OK def n_palavras_diferentes(lista_palavras):
+def compara_assinatura(as_a, as_b): IMPLEMENTAR
+def calcula_assinatura(texto): IMPLEMENTAR
+def avalia_textos(textos, ass_cp): IMPLEMENTAR
+Funções auxiliares:
+def tamanho_medio_palavras(palavras):
+def relacao_type_token(palavras):
+def razao_hapax_legomana(palavras):
+def tamanho_medio_de_sentenca(sentencas):
+def complexidade_de_sentenca(lista_frases, sentencas):
+def tamanho_medio_de_frase(lista_frases):
+def main()
+10 (ou 9) funções para fazer.................!
 
+
+'''
 ####################################################################
 import re
 '''A funcao le os valores dos tracos linguisticos do modelo e devolve uma assinatura a ser comparada com os textos fornecidos'''
-#prachamar
-#listatextos=[]
-
-#listatextos=le_textos()
-#comparação de listas
-#if ( ass1 == ass2 ):
-
-
-
-
-#le_assinatura()
-
 
 def le_assinatura():
     print("Bem-vindo ao detector automático de COH-PIAH.")
@@ -86,32 +96,57 @@ def n_palavras_diferentes(lista_palavras):
             freq[p] = 1
 
     return len(freq)
-
-def compara_assinatura(as_a, as_b):
-    '''IMPLEMENTAR. Essa funcao recebe duas assinaturas de texto e deve devolver o grau de similaridade nas assinaturas.'''
+'''funções definidas por mim'''
+'''Tamanho médio de palavra: Média simples do número de caracteres por palavra.'''
+def tamanho_medio_palavras(palavras): 
+def relacao_type_token(palavras):
+def razao_hapax_legomana(palavras):
+def tamanho_medio_de_sentenca(sentencas):
+def complexidade_de_sentenca(lista_frases, sentencas):
+def tamanho_medio_de_frase(lista_frases):
+    
+def compara_assinatura(as_a, as_b): 
+    #comparação de listas
+    #if ( ass1 == ass2 ):
+    #le_assinatura()
+    #as_a = le_assinatura()
+    #as_b = calcula_assinatura(texto)
+    #return ass_cp #lista
+    #    abs (differenca( traços)) / 6
+    #    '''IMPLEMENTAR. Essa funcao recebe duas assinaturas de texto e deve devolver o grau de similaridade nas assinaturas.'''
     pass
 
 def calcula_assinatura(texto):
-    '''IMPLEMENTAR. Essa funcao recebe um texto e deve devolver a assinatura do texto.'''
-    
-#tam_medio = wal =  sum tamanhos  / numero de palavras
-#typetoken = ttr = numero de palavras únicas / total de palavras
-#hapaxlegomana = hlr = numero de palavras singletons / total de palavras
-#tammediosentenca = sal = soma de todos os caracteres sem separadores / numero de sentencas
-#complexidade = sac = numero toral de frases / numero de sentencas
-#tammediofrase = pal = soma de caracteres sem separadores / numero de frases
-    
-    pass
+     int(input("Entre com um texto:"))
+    #tam_medio = wal =  sum tamanhos  / numero de palavras
+    #typetoken = ttr = numero de palavras únicas / total de palavras
+    #hapaxlegomana = hlr = numero de palavras singletons / total de palavras
+    #tammediosentenca = sal = soma de todos os caracteres sem separadores / numero de sentencas
+    #complexidade = sac = numero toral de frases / numero de sentencas
+    #tammediofrase = pal = soma de caracteres sem separadores / numero de frases
 
+    #return [wal, ttr, hlr, sal, sac, pal]
+    ass = []
+    ass.append
+    pass
+   
 def avalia_textos(textos, ass_cp):
-    '''IMPLEMENTAR. Essa funcao recebe uma lista de textos e deve devolver o numero (1 a n) do texto com maior probabilidade de ter sido infectado por COH-PIAH.'''
-'''similaridade'''
-#def sim(a, b):
-#    abs (differenca( traços)) / 6
-'''O parâmetro "ass_cp" é uma lista de grau de similaridade que você comparou na função "compara_assinatura(as_a, as_b)", a função "avalia_texto" serve para retorna o numero do texto que esta mais próximo de ser uma COH-PIAH, ou seja ele vai comparar os valores da lista "ass_cp" e ira localizar o menor valor dessa lista e depois ira retorna a numeração do texto que esta associada a o valor encontrado.'''
-
-
-'Para cada texto, você deve calcular o grau de similaridade com a assinatura do portador de COH-PIAH e no final exibir qual o texto que mais provavelmente foi escrito por algum aluno infectado.'''
-#print("O autor do texto", infectado, "está infectado com COH-PIAH")
+    #textos = []
+    #textos = le_textos()
+    #for i in textos:
+    #    ass_cp = compara_assinatura(as_a, as_b) #as_a e as_b são as coisas que rodam?
+    #    compara_assinatura(orig,i)
+    #recebe_comparacao = recebe.comparacao.append(compara_assinatura(i,j))
+    return(textos[infectado_POSICAO])
+    #print("O autor do texto", textos[infectado_POSICAO], "está infectado com COH-PIAH")
     pass
+    min = ass_cp[0] 
+    k = 1 #como ja tem o temps[0] pode comecar com 1
+    while k < len(ass_cp):
+        if ass_cp[k] < min:
+            min = ass_cp[i]
+        k = k + 1
+    return min #valor ou posicao do valor?  ira retorna a numeração do texto que esta associada a o valor encontrado.'''
+
+
     
