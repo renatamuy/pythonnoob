@@ -12,21 +12,21 @@ OK def separa_frases(sentenca):
 OK def separa_palavras(frase):
 OK def n_palavras_unicas(lista_palavras):
 OK def n_palavras_diferentes(lista_palavras):
-def compara_assinatura(as_a, as_b): IMPLEMENTAR
-def calcula_assinatura(texto): IMPLEMENTAR
-def avalia_textos(textos, ass_cp): IMPLEMENTAR
-Funções auxiliares:
-def tamanho_medio_palavras(palavras):
-def relacao_type_token(palavras):
-def razao_hapax_legomana(palavras):
+def compara_assinatura(as_a, as_b): 
+def calcula_assinatura(texto): 
+def avalia_textos(textos, ass_cp): 
+OK19 def tamanho_medio_palavras(palavras):
+OK19 def relacao_type_token(palavras):
+OK19 def razao_hapax_legomana(palavras):
 def tamanho_medio_de_sentenca(sentencas):
 def complexidade_de_sentenca(lista_frases, sentencas):
 def tamanho_medio_de_frase(lista_frases):
 def main()
-10 (ou 9) funções para fazer.................!
-
-
 '''
+
+#Lista teste
+["Conseguiiiiiiiiiiiiiiiiiiiiiiiii", "fazer", "palavras","constitucionalmentesssicissma", "oia", "uia", "só", "sua", "presença", "vai", "me", "deixar", "feliz", "só", "hoje"]
+
 ####################################################################
 import re
 '''A funcao le os valores dos tracos linguisticos do modelo e devolve uma assinatura a ser comparada com os textos fornecidos'''
@@ -61,6 +61,7 @@ def separa_sentencas(texto):
         del sentencas[-1]
     return sentencas
 
+
 def separa_frases(sentenca):
     '''A funcao recebe uma sentenca e devolve uma lista das frases dentro da sentenca'''
     return re.split(r'[,:;]+', sentenca)
@@ -69,11 +70,11 @@ def separa_palavras(frase):
     '''A funcao recebe uma frase e devolve uma lista das palavras dentro da frase'''
     return frase.split()
 
-def n_palavras_unicas(lista_palavras):
+def n_palavras_unicas(palavras):
     '''Essa funcao recebe uma lista de palavras e devolve o numero de palavras que aparecem uma unica vez'''
     freq = dict()
     unicas = 0
-    for palavra in lista_palavras:
+    for palavra in palavras:
         p = palavra.lower()
         if p in freq:
             if freq[p] == 1:
@@ -85,10 +86,10 @@ def n_palavras_unicas(lista_palavras):
 
     return unicas
 
-def n_palavras_diferentes(lista_palavras):
+def n_palavras_diferentes(palavras):
     '''Essa funcao recebe uma lista de palavras e devolve o numero de palavras diferentes utilizadas'''
     freq = dict()
-    for palavra in lista_palavras:
+    for palavra in palavras:
         p = palavra.lower()
         if p in freq:
             freq[p] += 1
@@ -96,14 +97,54 @@ def n_palavras_diferentes(lista_palavras):
             freq[p] = 1
 
     return len(freq)
+
 '''funções definidas por mim'''
 '''Tamanho médio de palavra: Média simples do número de caracteres por palavra.'''
-def tamanho_medio_palavras(palavras): 
+
+def tamanho_medio_palavras(palavras):
+    soma = 0
+    for i in range(0, len(palavras)):
+        valor = len(palavras[i])
+        soma = soma + valor
+    return(soma / len(palavras) ) 
+	
+'''Relação Type-Token: Número de palavras diferentes utilizadas em um texto divididas pelo
+total de palavras.'''
+    
 def relacao_type_token(palavras):
-def razao_hapax_legomana(palavras):
-def tamanho_medio_de_sentenca(sentencas):
+    difs = n_palavras_diferentes(palavras)
+    return ( difs / len(palavras))
+
+
+'''vazão Hapax Legomana: Número de palavras utilizadas uma vez dividido pelo
+número total de palavras.'''
+
+def razao_hapax_legomana(palavras): 
+    return ((n_palavras_unicas(palavras)) / len(palavras))
+
+'''Tamanho médio de sentença: Média simples do número de caracteres por sentença.'''
+
+def tamanho_medio_de_sentenca(sents):
+    #sents = separa_sentencas(texto)
+    total = 0
+    for sent in sents:
+        guarde os caracteres e some
+        total = total + ATUAL
+    return ( total / len (sents) ) 
+
+
+'''Complexidade de sentença: Média simples do número de frases por sentença.'''
+
 def complexidade_de_sentenca(lista_frases, sentencas):
+    lista_sents = separa_sentencas(sentencas)
+    
+    return (len(lista_frases) / len(lista_sents))
+    
+
+'''Tamanho médio de frase: Média simples do número de caracteres por frase.'''
+
 def tamanho_medio_de_frase(lista_frases):
+
     
 def compara_assinatura(as_a, as_b): 
     #comparação de listas
