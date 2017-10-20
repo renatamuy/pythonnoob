@@ -3,8 +3,8 @@ Relação Type-Token: Número de palavras diferentes utilizadas em um texto divi
 Razão Hapax Legomana: Número de palavras utilizadas uma vez dividido pelo número total de palavras.
 Tamanho médio de sentença: Média simples do número de caracteres por sentença.
 Complexidade de sentença: Média simples do número de frases por sentença.
-Tamanho médio de frase: Média simples do número de caracteres por frase.'''
-'''Lista de funções
+Tamanho médio de frase: Média simples do número de caracteres por frase.
+Lista de funções
 OK def le_assinatura():
 OK def le_textos():
 OK def separa_sentencas(texto):
@@ -13,7 +13,7 @@ OK def separa_palavras(frase):
 OK def n_palavras_unicas(lista_palavras):
 OK def n_palavras_diferentes(lista_palavras):
 def compara_assinatura(as_a, as_b): 
-def calcula_assinatura(texto): 
+OK20 def calcula_assinatura(texto): 
 def avalia_textos(textos, ass_cp): 
 OK19 def tamanho_medio_palavras(palavras):
 OK19 def relacao_type_token(palavras):
@@ -21,12 +21,25 @@ OK19 def razao_hapax_legomana(palavras):
 OK19 def tamanho_medio_de_sentenca(sentencas):
 OK19 def complexidade_de_sentenca(lista_frases, sentencas):
 OK19 def tamanho_medio_de_frase(lista_frases):
-def main()
+OK19 def main()
 '''
 
 ####################################################################
 import re
+           
+def le_textos():
+    i = 1
+    textos = []
+    texto = input("Digite o texto " + str(i) +" (aperte enter para sair):")
+    while texto:
+        textos.append(texto)
+        i += 1
+        texto = input("Digite o texto " + str(i) +" (aperte enter para sair):")
+
+    return textos
+
 '''A funcao le os valores dos tracos linguisticos do modelo e devolve uma assinatura a ser comparada com os textos fornecidos'''
+
 
 def le_assinatura():
     print("Bem-vindo ao detector automático de COH-PIAH.")
@@ -38,8 +51,6 @@ def le_assinatura():
     pal = float(input("Entre o tamanho medio de frase:"))
 
     return [wal, ttr, hlr, sal, sac, pal]
-
-
 
 def separa_sentencas(texto):
     '''A funcao recebe um texto e devolve uma lista das sentencas dentro do texto'''
@@ -102,7 +113,6 @@ def relacao_type_token(palavras):
     difs = n_palavras_diferentes(palavras)
     return ( difs / len(palavras))
 
-
 '''vazão Hapax Legomana: Número de palavras utilizadas uma vez dividido pelo
 número total de palavras.'''
 
@@ -125,7 +135,6 @@ def complexidade_de_sentenca(lista_frases, sentencas):
     lista_frases = separa_frases(sentenca)  #mantém habilitada ou não?
     return (len(lista_frases) / len(lista_sents))
     
-
 '''Tamanho médio de frase: Média simples do número de caracteres por frase.'''
 
 def tamanho_medio_de_frase(lista_frases):
@@ -134,20 +143,34 @@ def tamanho_medio_de_frase(lista_frases):
         soma = soma + len(frase)
     return soma
 
-
 def calcula_assinatura(texto):
-     int(input("Entre com um texto:"))
+    int(input("Entre com um texto:"))
+    #Crie uma lista de sentencas
+    sents = separa_sentencas(texto)
+    #Crie uma lista de frases
+    frases = []
+    for s in sents:
+        frases_separadas = separa_frases(s)
+
+        for fs in frases_separadas:
+            frases = frases.append(fs)       
+    #Crie uma lista de palavras (palavras)
+    palavras[]
+
+    for ps in frases:
+        palavras_seps = separa_palavras(ps)
+
+        for palsep in palavras_seps:
+            palavras.append(palsep)
+    #assinatura = [] #acho que não preciso da lista. Se não der certo use append
     wal = tamanho_medio_palavras(palavras)
     ttr = relacao_type_token(palavras)
     hlr = razao_hapax_legomana(palavras)
     sal = tamanho_medio_de_sentenca(sents)
     sac = complexidade_de_sentenca(lista_frases, sentencas)
     pal = tamanho_medio_de_frase(lista_frases) 
-    
-    return [wal, ttr, hlr, sal, sac, pal] #assinatura
-    #    ass = []
-    #    ass.append
-
+    assinatura = [wal, ttr, hlr, sal, sac, pal]
+    return assinatura
 
 '''Essa funcao recebe duas assinaturas de texto e deve devolver o
 grau de similaridade nas assinaturas.'''
@@ -170,8 +193,7 @@ def avalia_textos(textos, ass_cp):
     #    compara_assinatura(orig,i)
     #recebe_comparacao = recebe.comparacao.append(compara_assinatura(i,j))
     return(textos[infectado_POSICAO])
-    print("O autor do texto", textos[infectado_POSICAO], "está infectado com COH-PIAH")
-    pass
+        pass
     min = ass_cp[0] 
     k = 1 #como ja tem o temps[0] pode comecar com 1
     while k < len(ass_cp):
@@ -181,38 +203,44 @@ def avalia_textos(textos, ass_cp):
     return min #valor ou posicao do valor?  ira retorna a numeração do texto que esta associada a o valor encontrado.'''
 
 def main():
-    print("Bem-vindo ao detector automático de COH-PIAH.")
-    le_assinatura()
-    continue = True
-    t = 1
-    textos =  []
-    while continue:
-        textos.append(textos)
-        textos = input("Digite o texto", t, "(aperte enter para sair):")
-        t = t + 1
-     #cria lista com os textos, como armazenar eles pelo input? Loop?
-        
-        if input("Digite o texto", t, "(aperte enter para sair):") == "" :
-                 continue = False
+    #print("Bem-vindo ao detector automático de COH-PIAH.")
+    assinatura_input = le_assinatura()
+    textos = le_textos() #pode ser uma lista normal
+    assinaturas = []
+    for texto in textos:
+        assinaturas.append( calcula_assinatura(texto))
 
-def le_textos():
-    i = 1
-    textos = []
-    texto = input("Digite o texto " + str(i) +" (aperte enter para sair):")
-    while texto:
-        textos.append(texto)
-        i += 1
-        texto = input("Digite o texto " + str(i) +" (aperte enter para sair):")
+    assinatura_comp = []
 
-    return textos
+    for assinatura in assinaturas:
+        assinaturas_comp.append( compara_assinaturas(assinatura_input, assinatura))
+
+    infectado = avalia_textos(textos, assinaturas_comp)
+    print("O autor do texto", infectado, "está infectado com COH-PIAH")
 
 
-##################################################
+#Chama a função
+main()
+
+################
 #Lista teste
 ["Conseguiiiiiiiiiiiiiiiiiiiiiiiii", "fazer", "palavras","constitucionalmentesssicissma", "oia", "uia", "só", "sua", "presença", "vai", "me", "deixar", "feliz", "só", "hoje"]
 
 
-
+#le_textos_re():
+#    continue = True
+#    t = 1
+#    textos =  []
+#    while continue:
+#        textos.append(textos)
+#        textos = input("Digite o texto", t, "(aperte enter para sair):")
+#       t = t + 1
+#     #cria lista com os textos, como armazenar eles pelo input? Loop?
+#        
+#        if input("Digite o texto", t, "(aperte enter para sair):") == "" :
+#                 continue = False
+#    pass
+##################################################
 
 
 
