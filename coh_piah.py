@@ -12,9 +12,9 @@ OK def separa_frases(sentenca):
 OK def separa_palavras(frase):
 OK def n_palavras_unicas(lista_palavras):
 OK def n_palavras_diferentes(lista_palavras):
-def compara_assinatura(as_a, as_b): 
-OK20 def calcula_assinatura(texto): 
-def avalia_textos(textos, ass_cp): 
+OK def compara_assinatura(as_a, as_b): 
+OK20 def calcula_assinatura(texto):  Para mim, foi a mais difícil, por incrível que pareça!
+OK20 def avalia_textos(textos, ass_cp): 
 OK19 def tamanho_medio_palavras(palavras):
 OK19 def relacao_type_token(palavras):
 OK19 def razao_hapax_legomana(palavras):
@@ -38,11 +38,11 @@ def le_textos():
 
     return textos
 
+
 '''A funcao le os valores dos tracos linguisticos do modelo e devolve uma assinatura a ser comparada com os textos fornecidos'''
 
 
 def le_assinatura():
-    print("Bem-vindo ao detector automático de COH-PIAH.")
     wal = float(input("Entre o tamanho medio de palavra:"))
     ttr = float(input("Entre a relação Type-Token:"))
     hlr = float(input("Entre a Razão Hapax Legomana:"))
@@ -119,128 +119,110 @@ número total de palavras.'''
 def razao_hapax_legomana(palavras): 
     return ((n_palavras_unicas(palavras)) / len(palavras))
 
-'''Tamanho médio de sentença:Média simples do número de caracteres por sentença.'''
+'''Tamanho médio de sentença: Média simples do número de caracteres por sentença.'''
 
-def tamanho_medio_de_sentenca(sents):
-    sents = separa_sentencas(texto) #mantém habilitada ou não?
+def tamanho_medio_de_sentenca(sentencas):
     total = 0
-    for sent in sents:
+    for sent in sentencas:
         total = total + len(sent)
-    return ( total / len (sents) ) 
+    return ( total / len (sentencas) ) 
 
 '''Complexidade de sentença: Média simples do número de frases por sentença.'''
 
 def complexidade_de_sentenca(lista_frases, sentencas):
-    lista_sents = separa_sentencas(sentencas) #mantém habilitada ou não?
-    lista_frases = separa_frases(sentenca)  #mantém habilitada ou não?
-    return (len(lista_frases) / len(lista_sents))
+    return len(lista_frases) / len(sentencas)
     
 '''Tamanho médio de frase: Média simples do número de caracteres por frase.'''
 
 def tamanho_medio_de_frase(lista_frases):
     soma = 0
-    for frase in lista frases:
+    for frase in lista_frases:
         soma = soma + len(frase)
-    return soma
+    return soma / len(lista_frases)
 
 def calcula_assinatura(texto):
-    int(input("Entre com um texto:"))
     #Crie uma lista de sentencas
-    sents = separa_sentencas(texto)
+    sentencas = separa_sentencas(texto)
     #Crie uma lista de frases
     frases = []
-    for s in sents:
+    for s in sentencas:
         frases_separadas = separa_frases(s)
-
         for fs in frases_separadas:
-            frases = frases.append(fs)       
-    #Crie uma lista de palavras (palavras)
-    palavras[]
+            frases.append(fs)           
 
+    #Crie uma lista de palavras (palavras)
+    palavras = []
     for ps in frases:
         palavras_seps = separa_palavras(ps)
-
         for palsep in palavras_seps:
             palavras.append(palsep)
-    #assinatura = [] #acho que não preciso da lista. Se não der certo use append
-    wal = tamanho_medio_palavras(palavras)
-    ttr = relacao_type_token(palavras)
-    hlr = razao_hapax_legomana(palavras)
-    sal = tamanho_medio_de_sentenca(sents)
-    sac = complexidade_de_sentenca(lista_frases, sentencas)
-    pal = tamanho_medio_de_frase(lista_frases) 
-    assinatura = [wal, ttr, hlr, sal, sac, pal]
+    
+    #Crie uma lista para receber as assinaturas
+    
+    a = tamanho_medio_palavras(palavras)
+    b = relacao_type_token(palavras)
+    c = razao_hapax_legomana(palavras)
+    d = tamanho_medio_de_sentenca(sentencas)
+    e = complexidade_de_sentenca(frases, sentencas)
+    f = tamanho_medio_de_frase(frases)
+    
+    assinatura = [a, b, c, d, e, f] #o Corretor chia quando você retorna isso com append...
+    
+    
     return assinatura
 
+
 '''Essa funcao recebe duas assinaturas de texto e deve devolver o
-grau de similaridade nas assinaturas.'''
+grau de similaridade nas assinaturas.''' 
 
-def compara_assinatura(as_a, as_b): 
-    #comparação de listas
-    #if ( ass1 == ass2 ):
-    #le_assinatura()
-    #as_a = le_assinatura()
-    #as_b = calcula_assinatura(texto)
-    return ass_cp #lista
-    #    abs (differenca( traços)) / 6
-    #    '''IMPLEMENTAR. Essa funcao recebe duas assinaturas de texto e deve devolver o grau de similaridade nas assinaturas.'''
+#as_a já sai como float?
 
-def avalia_textos(textos, ass_cp):
-    #textos = []
-    #textos = le_textos()
-    #for i in textos:
-    #    ass_cp = compara_assinatura(as_a, as_b) #as_a e as_b são as coisas que rodam?
-    #    compara_assinatura(orig,i)
-    #recebe_comparacao = recebe.comparacao.append(compara_assinatura(i,j))
-    return(textos[infectado_POSICAO])
-        pass
-    min = ass_cp[0] 
-    k = 1 #como ja tem o temps[0] pode comecar com 1
-    while k < len(ass_cp):
-        if ass_cp[k] < min:
-            min = ass_cp[i]
-        k = k + 1
-    return min #valor ou posicao do valor?  ira retorna a numeração do texto que esta associada a o valor encontrado.'''
+def compara_assinatura(as_a, as_b):
+    somadiferenca = 0 
+    for i in range(len(as_b)):
+        somadiferenca = somadiferenca + abs(as_a[i] - as_b[i])
+    similaridade_a_b = somadiferenca / 6
+    return similaridade_a_b 
+
+
+#list indices must be integers or slices, not float
+
+'''IMPLEMENTAR. Essa funcao recebe uma lista de textos e deve devolver o numero
+(1 a n) do texto com maior probabilidade de ter sido infectado por COH-PIAH.'''
+
+def avalia_textos(textos, assinaturas_comp):
+    max = assinaturas_comp[0] 
+    for k in range(len(assinaturas_comp)):
+        if assinaturas_comp[k] >= max: # é o maior grau de similaridade, certo? antes estava menor (eita!)
+            max = assinaturas_comp[k]
+            
+    return k #deve se retornar k e não min grrrrr eu temia cometer esse erro desde o princípio
+
+'''Essa função amarra tudo'''
 
 def main():
-    #print("Bem-vindo ao detector automático de COH-PIAH.")
+    print("Bem-vindo ao detector automático de COH-PIAH.")
     assinatura_input = le_assinatura()
     textos = le_textos() #pode ser uma lista normal
     assinaturas = []
+    
     for texto in textos:
         assinaturas.append( calcula_assinatura(texto))
 
-    assinatura_comp = []
-
+    assinaturas_comp = []
+    
     for assinatura in assinaturas:
-        assinaturas_comp.append( compara_assinaturas(assinatura_input, assinatura))
+        assinaturas_comp.append( compara_assinatura(assinatura_input, assinatura))
 
     infectado = avalia_textos(textos, assinaturas_comp)
-    print("O autor do texto", infectado, "está infectado com COH-PIAH")
+    print(" ")
+    print("O autor do texto ", infectado, " está infectado com COH-PIAH")
 
 
-#Chama a função
+#Erro final era um AssertionError: Esperado: 2; recebido: 5
+
+
+#Chama a função pra começar o programa
 main()
-
-################
-#Lista teste
-["Conseguiiiiiiiiiiiiiiiiiiiiiiiii", "fazer", "palavras","constitucionalmentesssicissma", "oia", "uia", "só", "sua", "presença", "vai", "me", "deixar", "feliz", "só", "hoje"]
-
-
-#le_textos_re():
-#    continue = True
-#    t = 1
-#    textos =  []
-#    while continue:
-#        textos.append(textos)
-#        textos = input("Digite o texto", t, "(aperte enter para sair):")
-#       t = t + 1
-#     #cria lista com os textos, como armazenar eles pelo input? Loop?
-#        
-#        if input("Digite o texto", t, "(aperte enter para sair):") == "" :
-#                 continue = False
-#    pass
-##################################################
-
 
 
