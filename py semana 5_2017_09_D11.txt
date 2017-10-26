@@ -1,0 +1,265 @@
+ >>> type(10)
+<class 'int'>
+>>> type("rere")
+<class 'str'>
+>>> type(5 /2)
+<class 'float'>
+#Divisão inteira
+10 // 3
+#Divisão com dízima
+10 / 3
+
+#Resto da divisão, chave para entender exercícios com escolha de números pares ou impares 
+10 % 3
+
+#para truncar, e pegar só a parte inteira, não é arredondar:
+int( 10.333333)
+#Comprimento de string
+
+len("rere")
+#Objetos float não tem len (length)
+#Converte o float 
+temp = str(23.291229956104985)
+temp
+'23.291229956104985'
+len(temp)
+#18
+#os diretorio default
+
+
+
+# a funcao input sempre devolve um string, entao converta pra um float
+
+#Perceba as diferenças
+print("olá" 'mundo')
+print("olá" "mundo")
+print("olá" , "mundo")
+
+
+#getwd
+
+os.getcwd()
+#muda dir
+import os
+os.chdir('F:\\__data\\')
+os.chdir('C:\\Users\\renatamuy\\Dropbox\\curso_python\\')
+
+py.test test_sample.py
+pytest test_sample.py
+
+#para mudar o diretorio no prompt cmd, só digite f:, pequeno mesmo. Bizarrroooo..
+#digite py no prompt pra chamar o python
+
+#cHECANDO AMBIENTE
+import sys
+print(sys.path)
+
+#
+import os, sys                                                                  
+
+#ACHO que este comando permite trabalhar em dois diretorios
+
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath("F:\__data")), os.pardir))
+
+#isso funciona?
+
+setenv PYTHONPATH /Users/myname/tmp:/Users/myname/misc
+
+
+
+
+#https://stackoverflow.com/questions/26830796/run-pytest-via-idle-gui
+import scriptname
+#Esse funciona
+exec(open("medias.py").read())
+#acheeeeeeiiii
+import imp
+imp.reload(FizzBuzz2)
+#set PYTHONPATH=%PYTHONPATH%;C:\My_python_lib
+
+#Ou abre no pretinho
+import subprocess
+subprocess.call(['python', 'helloworld.py']) # Just run the program
+subprocess.check_output(['python', 'helloworld.py']) # Also gets you the stdout
+
+#semana  3
+
+#
+#divisão inteira //
+#resto de divisão %
+#RESTOOO É SENSASIONAAAAL PRA SABER SE E PAR.. PRA SABER SE É DIVISIVEL
+#Reflita!
+#1 % 3 é 1
+#2 % 3 é 2
+#3 % 3 é 0
+#4 % 3 é 1
+
+#operadores booleanos
+type(False)
+type(18 > 0 )
+x=100
+#expressao booleana! and == & do R
+x > 0 and x  ** 2 > 100
+#or == | in r
+x< 0 or x == 12321
+
+#not seria como !=?
+not x > 0 #False
+x > 0 True
+not not x > 0 #True
+not True
+not False
+not not True
+ not not not x > 0 #false
+not not not not not x > 0 #false
+
+
+# Eu vou para a praia? Tem duas condicoes
+fizersol= True
+forferiado= False
+vou = fizersol and forferiado
+vou
+
+#Niveis
+#7 alto exponenciacao **
+#6 multiplicacao *, /, //, %
+#5 adicao + -
+#4 relacional == != <= >= > <
+#3 logico not
+#2 logico and
+#1 baixo logico or 
+
+
+#Teste lógico de direçao
+idade= 15
+maioridade= 18
+pode = idade >= maioridade
+pode
+#false
+
+#no python, name Error
+fruta = laranja
+
+#If
+temperatura = 103
+
+if temperatura > 100:
+	aguaFerve= True
+	evapora= "rapido"
+
+#
+aguaFerve
+evapora
+#if e else
+
+#if condicao:
+#	comando1
+#	comando2
+#else: 
+#	comando11
+#	comando22
+#comando3
+
+
+#Semana 4
+
+#non os dependant
+from os import remove
+
+#While precisa de starter
+i=0
+
+while i<10 :
+	print(2 ** i)
+	i=  i + 1
+#
+
+
+
+print("Digite uma seq de valores e para parar de somar digite zero")
+soma = 0 
+valor = 1
+while valor != 0:
+	valor = input("Digite um valor a ser somado: ")
+	soma=  soma + float(valor)
+print("A soma dos valores digitados é:", soma)
+
+#######################Soma os digitos sem o while, forca bruta
+
+valor= 6523
+
+print("Digite um número de quatro dígitos de seu interesse")
+
+valor = input("Digite um valor a ser somado: ")
+valor= int(valor)
+primeiro = valor // 1000
+segundo = (valor // 100) % 10
+terceiro =  (valor % 100) // 10
+quarto = valor % 10
+
+soma= primeiro+ segundo + terceiro + quarto
+
+print("A soma dos quatro dígitos é", soma)
+
+
+
+
+#Entender esse loop
+i = 2
+
+while True:
+
+    if i%3 == 0:
+
+        break
+    
+	print(i)
+    
+	i += 2 
+
+#Semana 5
+#funções
+
+#Só consegui instalar o py test pelo prompt de comando, usando o easy_install. Talvez explicar #melhor essa parte.
+#Achei que dava para #puxar pelo IDLE
+
+#pytest foi baixado em 
+#C:\Users\root\Anaconca\lib\site-packages\pytest-3.2.1-py2.7.egg\pytest.pyc
+
+
+#Meu pytest foi baixado e só funciona no python 3.6.2 shell. No 3.5.4, que eu vinha usando, o pytest não roda!
+
+
+#função do pytest : test_answer
+#verifique se o resultado da função é == a algo
+py.test test_sample.py
+
+
+#Testando se funções funcionam é legal.
+#If e else precisam de dois pontos depois da condição. Se não puser dois pontos é erro de sintaxe.
+
+
+#Debugger:
+
+#Go executa tudo de uma vez
+#step vai passo a passo
+#Over executa aquela linha inteira e se tem uma chamada de funlão ele não vai entrar dentro da função e mostrar, fazer depuracao passo a passo eele vai executar a funcao inteira.
+
+
+#O Jogo do NIM
+
+
+#semana 7 Definição de loops encaixados
+#Quando você faz uma função, a main() vem primeiro e as aux() vem depois
+#Quanto mais vezes você repassar a função primos melhor.
+#Acompanhar o raciocínio dos exercícios resolvidos ajuda muito, mas a mente tem que estar "zerada"
+#Um teste lógico se faz sem necessariamente perguntarmos tudo
+se i = 9
+#if(i) < 10 QUER DIZER if(i) < 10 == True por definição
+#if not (i) < 10 QUER DIZER if(i) < 10 == False por definição
+i< 10
+True
+not i < 10
+False
+#Util muito útil em loops dentro de loops 
+
